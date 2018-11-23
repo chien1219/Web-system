@@ -30,12 +30,12 @@
                   <a href="<?php echo Uri::to('admin/' . $page); ?>">Anchor CMS</a>
                 </li>
 
-                  <?php $menu = ['roledata', 'goddess', 'imagedata', 'categories', 'users', 'extend']; ?>
+                  <?php $menu = ['Roledata', 'GoddessData', 'Imagedata', 'CombatThemeScore', 'SystemInfo', 'Users']; ?>
                   <?php foreach ($menu as $url): ?>
                     <li <?php if (strpos(Uri::current(), $url) !== false) {
                         echo 'class="active"';
                     } ?>>
-                      <a href="<?php echo Uri::to('admin/' . $url); ?>">
+                        <a href="<?php echo Uri::to('admin/' . strtolower($url)); ?>">
                           <?php echo $url; ?>
                       </a>
                     </li>
@@ -46,9 +46,6 @@
               <?php echo Html::link('admin/logout', __('global.logout'), ['class' => 'btn']); ?>
 
               <?php $home = Registry::get('home_page'); ?>
-
-              <?php echo Html::link($home->slug, __('global.visit_your_site'),
-                  ['class' => 'btn', 'target' => '_blank']); ?>
 
           <?php else: ?>
             <aside class="logo">

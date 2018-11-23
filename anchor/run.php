@@ -74,6 +74,8 @@ if (is_admin()) {
     require APP . 'routes/users' . EXT;
     require APP . 'routes/variables' . EXT;
     require APP . 'routes/pagetypes' . EXT;
+    require APP . 'routes/roledata' . EXT;
+    require APP . 'routes/goddessdata' . EXT;
 } else {
     require APP . 'routes/site' . EXT;
 }

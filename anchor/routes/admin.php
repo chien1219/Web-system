@@ -284,6 +284,35 @@ Route::get('admin/extend', [
     }
 ]);
 
+/*
+   Roledata
+*/
+Route::get('admin/(:any)', [
+    'before' => 'auth',
+    'main'   => function ($page = 1) {
+
+        $vars['token'] = Csrf::token();
+        return View::create('roledata/index', $vars)
+                   ->partial('header', 'partials/header')
+                   ->partial('footer', 'partials/footer');
+    }
+]);
+
+/*
+   GoddessData
+*/
+Route::get('admin/goddessdata', [
+    'before' => 'auth',
+    'main'   => function ($page = 1) {
+
+        $vars['token'] = Csrf::token();
+
+        return View::create('goddessdata/index', $vars)
+                   ->partial('header', 'partials/header')
+                   ->partial('footer', 'partials/footer');
+    }
+]);
+
 Route::post('admin/get_fields', [
     'before' => 'auth',
     'main'   => function () {
