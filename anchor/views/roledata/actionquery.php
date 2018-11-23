@@ -2,22 +2,19 @@
 <?php
 require(APP . 'config/vevedbconfig.php');
 $query = $_POST['query'];
-$starttime = $_POST['starttime'];
-$endtime = $_POST['endtime'];
+$starttime = $_POST['starttime'] == '' ? '2018-1-1' : $_POST['starttime'];
+$endtime = $_POST['endtime'] == '' ? date('Y-m-d') : $_POST['endtime'];
+
 // Connect
 $con = mysqli_connect($db_host, $db_user, $db_pass);
 mysqli_select_db($con, $db_name);
  mysqli_query($con, "set character set 'utf8'");//utf-8 讀中文
  
-if ($query == '')
-{
-    $query = "SELECT * FROM $db_name.rs_roledata";
-}
-else
-{
-    $query = "SELECT * FROM $db_name.rs_roledata WHERE roleDBID = '$query'";
-}
- 
+    $query = $query == '' 
+            ? "SELECT * FROM $db_name.rs_roledata WHERE `CreateTime` BETWEEN '$starttime' and '$endtime'" 
+            : "SELECT * FROM $db_name.rs_roledata WHERE roleDBID = '$query' and `CreateTime` BETWEEN '$starttime' and '$endtime'";
+        
+    echo $query;
     $result = mysqli_query($con, $query)
         or die ('Error in query');
 
@@ -38,6 +35,9 @@ else
 		}
 		echo '</table><br />';
 	}
+        else{
+            echo 'No Data!';
+        }
     
     /*
     if (mysqli_num_rows($result))

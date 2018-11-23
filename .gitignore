@@ -57,3 +57,6 @@ vendor/
 # Assets and packages
 node_modules/
 *.map
+
+# Custom config
+vevedbconfig.php
