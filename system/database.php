@@ -33,6 +33,11 @@ class database
      * @var array
      */
     public static $connections = [];
+    
+     /**
+     *indicate which db to connect;
+     */
+    public static $db = 'gamedb';
 
     /**
      * Get a database connection profile

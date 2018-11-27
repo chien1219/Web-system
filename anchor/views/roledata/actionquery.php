@@ -14,14 +14,13 @@ mysqli_select_db($con, $db_name);
             ? "SELECT * FROM $db_name.rs_roledata WHERE `CreateTime` BETWEEN '$starttime' and '$endtime'" 
             : "SELECT * FROM $db_name.rs_roledata WHERE roleDBID = '$query' and `CreateTime` BETWEEN '$starttime' and '$endtime'";
         
-    echo $query;
     $result = mysqli_query($con, $query)
         or die ('Error in query');
 
 	if(mysqli_num_rows($result)) {
-		echo '<table cellpadding="10" cellspacing="0" class="db-table" >';
-		echo '<tr align="left"><th>WorldID</th><th>RoleDBID</th><th>RoleName</th><th>AccountType</th><th>AccountDBID</th><th>AccountName<th>OpenIDType</th><th>OpenID</th>'
-                . '<th>CreatTime</th><th>LastLoginTime</th><th>LastLogoutTime</th><th>LastDailyResetTime</th><th>EpCD</th><th>OptionFlag</th><th>ItemMallPointP</th>'
+		echo '<table cellpadding="15" cellspacing="0" class="db-table" border="1">';
+		echo '<tr align="left"><th>WorldID</th><th>RoleDBID</th><th>RoleName</th><th>AccountType</th><th>AccountDBID</th><th>AccountName</th><th>OpenIDType</th><th>OpenID</th>'
+                . '<th width="50">CreateTime</th><th>LastLoginTime</th><th>LastLogoutTime</th><th>LastDailyResetTime</th><th>EpCoolDown</th><th>OptionFlag</th><th>ItemMallPointP</th>'
                         . '<th>ItemMallPoingPSum</th><th>ItemMallPointG</th><th>ItemMallPointGSum</th><th>Gold</th><th>GameLv</th><th>GameExp</th><th>GoddessDBID</th><th>Ep</th>'
                         . '<th>GuardGoddessDBID_1</th><th>GuardGoddessDBID_2</th><th>GuardGoddessDBID_3</th><th>ImagePublicID_1</th><th>ImagePublicID_2</th>'
                         . '<th>ImagePublicID_3</th><th>ImagePublicID_4</th><th>ImagePublicID_5</th>'
@@ -38,23 +37,5 @@ mysqli_select_db($con, $db_name);
         else{
             echo 'No Data!';
         }
-    
-    /*
-    if (mysqli_num_rows($result))
-    {
-        while($row = mysqli_fetch_assoc($result)){
-            foreach($row as $cname => $cvalue){
-                print "$cvalue\t";
-            }
-             echo '<br>';
-        }
-    }
-    else
-    {
-        // Not authenticated
-        header('Location: index.php?refer='. urlencode($refer));
-    }
-     */
-    
 ?>
 <?php echo $footer; ?>

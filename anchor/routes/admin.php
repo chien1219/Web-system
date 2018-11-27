@@ -313,6 +313,20 @@ Route::get('admin/goddessdata', [
     }
 ]);
 
+/*
+   ImageData
+*/
+Route::get('admin/imagedata', [
+    'before' => 'auth',
+    'main'   => function ($page = 1) {
+
+        $vars['token'] = Csrf::token();
+        return View::create('imagedata/index', $vars)
+                   ->partial('header', 'partials/header')
+                   ->partial('footer', 'partials/footer');
+    }
+]);
+
 Route::post('admin/get_fields', [
     'before' => 'auth',
     'main'   => function () {

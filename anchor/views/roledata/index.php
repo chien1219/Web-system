@@ -6,7 +6,6 @@
 <input type="text" name="query" placeholder="RoleDBID" style="margin-top:5px">
 <input type="text" name="starttime" placeholder="Start Time" style="margin-top:5px; margin-left: 60px">
 <input type="text" name="endtime" placeholder="End Time" style="margin-top:5px; margin-left: 10px">
-&emsp; ex. 20180101 
 <br />
 <input type="submit" name="submit" value="Query"  style="margin-top:10px">
 </form>
