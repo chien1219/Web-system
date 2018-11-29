@@ -2,7 +2,6 @@
 
 class Migration_alter_users_password extends Migration
 {
-
     public function up()
     {
         $table = Base::table('users');

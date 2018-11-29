@@ -79,6 +79,9 @@ if (is_admin()) {
     require APP . 'routes/imagedata' . EXT;
     require APP . 'routes/combatthemescore' . EXT;
     require APP . 'routes/systeminfo' . EXT;
+    require APP . 'routes/revenge' . EXT;
+    require APP . 'routes/roleitem' . EXT;
+    require APP . 'routes/roleitemmallmoney' . EXT;
 } else {
     require APP . 'routes/site' . EXT;
 }

@@ -12,7 +12,7 @@
 
 <section class="wrap">
 
-  <ul class="list">
+    <ul class="list" style="margin-top: 20px">
       <?php foreach ($users->results as $user): ?>
         <li>
           <a href="<?php echo Uri::to('admin/users/edit/' . $user->id); ?>">

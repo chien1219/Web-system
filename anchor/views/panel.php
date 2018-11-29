@@ -1,4 +1,4 @@
-<?php echo $header; ?>
+<?php echo $header;?>
 
   <section class="wrap">
     <h1><?php echo __('VEVE Database Query System', 'Welcome'); ?></h1>
@@ -11,11 +11,13 @@
     <p><?php echo __('選擇欲查詢之資料庫: ',
             'database'); ?></p>
 
-    <select name="db" style="margin-top: 10px" onchange="location.reload()">
-        <option value="">資料庫</option>
-        <option value="<?php \System\database::$db = 'gamedb'; echo \System\database::$db;?>">GameDB</option>
-        <option value="<?php \System\database::$db = 'logdb'; echo \System\database::$db;?>">LogDB</option>
+    <form action="<?php echo Uri::to('admin/panel_update'); ?>" method="POST">
+    <select name="db" style="margin-top: 10px" onchange="">
+        <option value="gamedb">GameDB</option>
+        <option value="logdb">LogDB</option>
     </select>
+        <input type="submit" name="submit" style="margin-top: 10px; margin-left: 20px;"/>
+    </form>
     
   </section>
 

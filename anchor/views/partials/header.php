@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <title><?php echo __('global.manage'); ?><?php echo Config::meta('sitename'); ?></title>
-    <link rel="shortcut icon" type="image/png" href="<?php echo asset('anchor/views/assets/img/veveicon.png'); ?>"/>
+    <link rel="shortcut icon" type="image/png" href="<?php echo asset('anchor/views/assets/img/V.png'); ?>"/>
 
     <script src="<?php echo asset('anchor/views/assets/js/zepto.js'); ?>"></script>
 
@@ -32,11 +32,16 @@
                 </li>
 
                   <?php
-                  if (\System\database::$db == 'gamedb'){
+                  $table = Base::table('users');
+                  $id = auth::get_id();
+                  $sql = "SELECT `db` FROM $table WHERE `id` = '$id'";
+                  $db = DB::ask_result($sql, 'db');
+                  
+                  if ($db == 'gamedb'){
                       $menu = ['Roledata', 'GoddessData', 'Imagedata', 'CombatThemeScore', 'SystemInfo', 'Users'];
                   }
-                  else{
-                      $menu = ['Revenge', 'RoleItem', 'RoleItemMallMoney'];
+                  else if($db == 'logdb'){
+                      $menu = ['Revenge', 'RoleItem', 'RoleItemMallMoney', 'Users'];
                   }
                   ?>
                   <?php foreach ($menu as $url): ?>
@@ -57,7 +62,7 @@
 
           <?php else: ?>
             <aside class="logo">
-              <a href="<?php echo Uri::to('admin/login'); ?>">Anchor CMS</a>
+              <a href="<?php echo Uri::to('admin/login'); ?>">Veve DB</a>
             </aside>
           <?php endif; ?>
       </div>

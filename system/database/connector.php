@@ -76,6 +76,25 @@ abstract class connector
         }
     }
 
+     public function ask_result($sql, $col)
+    {
+        try {
+            /** @noinspection PhpUndefinedMethodInspection */
+            if (Config::db('profiling')) {
+                $this->queries[] = compact('sql', 'binds');
+            }
+
+            $statement = $this->instance()->prepare($sql);
+            $statement->execute();
+            
+            $result = $statement->fetchAll();
+            return $result['0'][$col];
+        } catch (Exception $e) {
+            $error = 'Database Error: ' . $e->getMessage() . '</code></p><p><code>SQL: ' . trim($sql);
+            throw new Exception($error, 0, $e);
+        }
+    }
+    
     /**
      * Return the profile array
      *

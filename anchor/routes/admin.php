@@ -327,6 +327,90 @@ Route::get('admin/imagedata', [
     }
 ]);
 
+/*
+   CombatThemeScore
+*/
+Route::get('admin/combatthemescore', [
+    'before' => 'auth',
+    'main'   => function ($page = 1) {
+
+        $vars['token'] = Csrf::token();
+        return View::create('combatthemescore/index', $vars)
+                   ->partial('header', 'partials/header')
+                   ->partial('footer', 'partials/footer');
+    }
+]);
+
+/*
+   SystemInfo
+*/
+Route::get('admin/systeminfo', [
+    'before' => 'auth',
+    'main'   => function ($page = 1) {
+
+        $vars['token'] = Csrf::token();
+        return View::create('systeminfo/index', $vars)
+                   ->partial('header', 'partials/header')
+                   ->partial('footer', 'partials/footer');
+    }
+]);
+
+/*
+   Revenge
+*/
+Route::get('admin/revenge', [
+    'before' => 'auth',
+    'main'   => function ($page = 1) {
+
+        $vars['token'] = Csrf::token();
+        return View::create('revenge/index', $vars)
+                   ->partial('header', 'partials/header')
+                   ->partial('footer', 'partials/footer');
+    }
+]);
+
+/*
+   roleitem
+*/
+Route::get('admin/roleitem', [
+    'before' => 'auth',
+    'main'   => function ($page = 1) {
+
+        $vars['token'] = Csrf::token();
+        return View::create('roleitem/index', $vars)
+                   ->partial('header', 'partials/header')
+                   ->partial('footer', 'partials/footer');
+    }
+]);
+
+/*
+   roleitemmallmoney
+*/
+Route::get('admin/roleitemmallmoney', [
+    'before' => 'auth',
+    'main'   => function ($page = 1) {
+
+        $vars['token'] = Csrf::token();
+        return View::create('roleitemmallmoney/index', $vars)
+                   ->partial('header', 'partials/header')
+                   ->partial('footer', 'partials/footer');
+    }
+]);
+
+/*
+   Roledata
+*/
+Route::post('admin/panel_update', [
+    'before' => 'auth',
+    'main'   => function ($page = 1) {
+
+        $vars['token'] = Csrf::token();
+        return View::create('panel_update', $vars)
+                   ->partial('header', 'partials/header')
+                   ->partial('footer', 'partials/footer');
+    }
+]);
+
 Route::post('admin/get_fields', [
     'before' => 'auth',
     'main'   => function () {

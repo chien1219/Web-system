@@ -52,6 +52,11 @@ class auth
 
         return false;
     }
+    
+    public static function get_id()
+    {
+        return Session::get(static::$session);
+    }
 
     /**
      * Checks whether a specific user ID matches the current user
