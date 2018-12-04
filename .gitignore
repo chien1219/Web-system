@@ -60,3 +60,4 @@ node_modules/
 
 # Custom config
 vevedbconfig.php
+cloudinary_setting.php
