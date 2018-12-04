@@ -1,6 +1,13 @@
 <?php echo $header; ?>
 <?php
 require(APP . 'config/vevedbconfig.php');
+
+if (empty($_POST['starttime']) && empty($_POST['endtime']))
+{
+    echo '<header class="wrap">請輸入日期條件</header>';
+    echo '<script>setTimeout("history.go(-1); location.reload();", 500); </script>';
+    return;
+}
 $starttime = $_POST['starttime'] == '' ? '2018-1-1' : $_POST['starttime'];
 $endtime = $_POST['endtime'] == '' ? date('Y-m-d') : $_POST['endtime'];
 
@@ -27,7 +34,7 @@ mysqli_query($con, "set character set 'utf8'");//utf-8 讀中文
 		echo '</table><br />';
 	}
         else{
-            echo 'No Data!';
+            echo '<header class="wrap">No Data!</header>';
         }
 ?>
 <?php echo $footer; ?>

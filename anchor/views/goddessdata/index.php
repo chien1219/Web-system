@@ -6,6 +6,7 @@
 <input type="text" name="query" placeholder="GoddessDBID" style="margin-top:5px">
 <br />
 <input type="submit" name="submit" value="Query"  style="margin-top:10px">
+<input type="reset" value="Reset" style="margin-left: 10px">
 </form>
 </body>
 </html>

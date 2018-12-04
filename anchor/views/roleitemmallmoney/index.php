@@ -8,6 +8,7 @@
 <input type="text" name="endtime" placeholder="End Time" style="margin-top:5px; margin-left: 10px">
 <br />
 <input type="submit" name="submit" value="Query"  style="margin-top:10px">
+<input type="reset" value="Reset" style="margin-left: 10px">
 </form>
 </body>
 </html>

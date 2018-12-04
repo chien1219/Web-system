@@ -14,7 +14,7 @@ mysqli_select_db($con, $db_name);
 
 	if(mysqli_num_rows($result)) {
 		echo '<table cellpadding="15" cellspacing="0" class="db-table" border="1">';
-		echo '<tr align="left"><th>CombatThemeDBID</th><th>CombatThemeTmpDBID</th><th>CombatThemeStartTime</th><th>CombatRevengeDBIS</th></tr>';
+		echo '<tr align="left"><th>CombatThemeDBID</th><th>CombatThemeTmpDBID</th><th>CombatThemeStartTime</th><th>CombatRevengeDBID</th></tr>';
 		while($row2 = mysqli_fetch_row($result)) {
 			echo '<tr>';
 			foreach($row2 as $key=>$value) {
