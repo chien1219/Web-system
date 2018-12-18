@@ -14,7 +14,7 @@ $endtime = $_POST['endtime'] == '' ? date('Y-m-d') : $_POST['endtime'];
 // Connect
 $con = mysqli_connect($db_host, $db_user, $db_pass);
 mysqli_select_db($con, $db_name);
-mysqli_query($con, "set character set 'utf8'");//utf-8 讀中文
+mysqli_query($con, "set character set 'utf8mb4'");//utf-8 讀中文
  
     $query = "SELECT * FROM $db_name.role_item WHERE `EventTime` BETWEEN '$starttime' and '$endtime'";
         

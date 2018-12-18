@@ -6,7 +6,7 @@ $query = $_POST['query'];
 // Connect
 $con = mysqli_connect($db_host, $db_user, $db_pass);
 mysqli_select_db($con, $db_name);
- mysqli_query($con, "set character set 'utf8'");//utf-8 讀中文
+ mysqli_query($con, "set character set 'utf8mb4'");//utf-8 讀中文
  
 $query = $query == '' ? "SELECT * FROM $db_name._sys_goddess" : "SELECT * FROM $db_name._sys_goddess WHERE GoddessDBID = '$query'";
 

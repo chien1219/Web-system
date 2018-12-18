@@ -33,7 +33,11 @@
     </select>
         <input type="submit" name="submit" style="margin-top: 10px; margin-left: 20px;"/>
     </form>
-    
+    <br/>
+    <form action="<?php echo Uri::to('http://192.168.1.205/webmfp9/checkpurchase/checkpurchase_googleplayNew.php?accountId=donate1&roleDBID=26&tmpID=0&gameServerIP=192.168.1.151'); ?>" method="POST" align="start" style="margin-top:20px">
+        <input type="hidden" name="receipt" value='{"json":"{\"orderId\":\"GPA.3375-6598-8393-04894\",\"packageName\":\"com.versus.veve\",\"productId\":\"pile.dia\",\"purchaseTime\":1531448016243,\"purchaseState\":0,\"developerPayload\":\"payload\",\"purchaseToken\":\"lgdpdojgebkjpcomaaeiegie.AO-J1Oz7qPOyXXhe-UJsBGG1aezm8lgBgioZ6T3cq8A7v1AMJyp35p91QrDYSW3sT43CgvCXv3EQ3kNtx58IADkycI9nmGLT2MauTNFVe-UVbStUoSv7Cgg\"}","signature":"WDhWnJP7TLmMzd1eq3UfRDsbZlWuMOazRFr6cr/V/AvOI4jOwa79U78eI9UC3gsinU73HBAAz7dioCtDY3rgtPw5/Sc634H+zemlVBF/evucWE89iIQqQtb4SroY5cuxPs5H/IrlAdmeDiJPFlGbiNDjtt0s782A+Mk2nee6WpX5b1LGy8WiREffQX+i4oV/tOb0OPARqIQaENGxKcOGffEzbsDWOpP++fWNQDVRBWNdPSbxutM8GAadIHkpzLgCH1tUCgW6L8cYxLiQel74oVZ0woiW4k/7BxBjWsVVodwKARE+Er4O8nQV3NOEY1eO1/Mqfr7w2lKv6aEYF7LD2A=="}'>
+        <input type="submit" style="margin-top: 10px; margin-left: 20px;"/>
+    </form>
   </section>
 
 <?php echo $footer; ?>

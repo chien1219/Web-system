@@ -8,7 +8,7 @@ $endtime = $_POST['endtime'] == '' ? date('Y-m-d') : $_POST['endtime'];
 // Connect
 $con = mysqli_connect($db_host, $db_user, $db_pass);
 mysqli_select_db($con, $db_name);
- mysqli_query($con, "set character set 'utf8'");//utf-8 讀中文
+ mysqli_query($con, "set character set 'utf8mb4'");
  
     $query = $query == '' 
             ? "SELECT * FROM $db_name.rs_roledata WHERE `CreateTime` BETWEEN '$starttime' and '$endtime'" 
