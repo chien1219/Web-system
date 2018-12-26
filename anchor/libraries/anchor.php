@@ -161,15 +161,7 @@ class anchor
         Registry::set('posts_page', Page::posts());
 
         if ( ! is_admin()) {
-            $categories = [];
-
-            // register categories
-            foreach (Category::get() as $itm) {
-                $categories[$itm->id] = $itm;
-            }
-
-            Registry::set('all_categories', $categories);
-
+           
             // register menu items
             $pages = Page::where('status', '=', 'published')
                          ->where('show_in_menu', '=', '1')

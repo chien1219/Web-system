@@ -34,15 +34,29 @@
                   <?php
                   $table = Base::table('users');
                   $id = auth::get_id();
-                  $sql = "SELECT `db` FROM $table WHERE `id` = '$id'";
-                  $db = DB::ask_result($sql, 'db');
                   
-                  if ($db == 'gamedb'){
-                      $menu = ['Roledata', 'GoddessData', 'Imagedata', 'CombatThemeScore', 'SystemInfo', 'Users'];
+                  $sql = "SELECT `function` FROM $table WHERE `id` = '$id'";
+                  $function = DB::ask_result($sql, 'function');
+                  
+                  if ($function == 'sendmail')
+                  {
+                      $menu = ['MailLog', 'SendMail', 'Users'];
                   }
-                  else if($db == 'logdb'){
-                      $menu = ['Revenge', 'RoleItem', 'RoleItemMallMoney', 'Users'];
-                  }
+                  else
+                  {
+                      $sql = "SELECT `db` FROM $table WHERE `id` = '$id'";
+                      $db = DB::ask_result($sql, 'db');
+                  
+                      if ($db == 'gamedb')
+                      {
+                          $menu = ['Roledata', 'GoddessData', 'Imagedata', 'CombatThemeScore', 'SystemInfo', 'Users'];
+                      }
+                      else if($db == 'logdb')
+                      {
+                          $menu = ['Revenge', 'RoleItem', 'RoleItemMallMoney', 'Users'];
+                      }
+                  }                  
+                  
                   ?>
                   <?php foreach ($menu as $url): ?>
                     <li <?php if (strpos(Uri::current(), $url) !== false) {

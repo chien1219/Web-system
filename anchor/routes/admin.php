@@ -287,7 +287,7 @@ Route::get('admin/extend', [
 /*
    Roledata
 */
-Route::get('admin/(:any)', [
+Route::get('admin/roledata', [  //(:any)
     'before' => 'auth',
     'main'   => function ($page = 1) {
 
@@ -398,7 +398,7 @@ Route::get('admin/roleitemmallmoney', [
 ]);
 
 /*
-   Roledata
+   panel_update
 */
 Route::post('admin/panel_update', [
     'before' => 'auth',
@@ -406,6 +406,34 @@ Route::post('admin/panel_update', [
 
         $vars['token'] = Csrf::token();
         return View::create('panel_update', $vars)
+                   ->partial('header', 'partials/header')
+                   ->partial('footer', 'partials/footer');
+    }
+]);
+
+/*
+   mail log
+*/
+Route::get('admin/maillog', [
+    'before' => 'auth',
+    'main'   => function ($page = 1) {
+
+        $vars['token'] = Csrf::token();
+        return View::create('maillog/index', $vars)
+                   ->partial('header', 'partials/header')
+                   ->partial('footer', 'partials/footer');
+    }
+]);
+
+/*
+  send mail
+*/
+Route::get('admin/sendmail', [
+    'before' => 'auth',
+    'main'   => function ($page = 1) {
+
+        $vars['token'] = Csrf::token();
+        return View::create('sendmail/index', $vars)
                    ->partial('header', 'partials/header')
                    ->partial('footer', 'partials/footer');
     }

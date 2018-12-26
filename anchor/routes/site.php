@@ -39,26 +39,17 @@ if ($home_page->id == $posts_page->id) {
 Route::get($routes, function ($offset = 1) use ($posts_page) {
     if ($offset > 0) {
 
-        // get public listings
-        list($total, $posts) = Post::listing(null, $offset, $per_page = Post::perPage());
     } else {
         return Response::create(new Template('404'), 404);
     }
 
     // get the last page
-    $max_page = ($total > $per_page) ? ceil($total / $per_page) : 1;
+    $max_page = 1;
 
     // stop users browsing to non existing ranges
     if (($offset > $max_page) or ($offset < 1)) {
         return Response::create(new Template('404'), 404);
     }
-
-    $posts = new Items($posts);
-
-    Registry::set('posts', $posts);
-    Registry::set('total_posts', $total);
-    Registry::set('page', $posts_page);
-    Registry::set('page_offset', $offset);
 
     return new Template('posts');
 });

@@ -62,18 +62,8 @@ if (is_admin()) {
     Config::set('admin.posts_per_page', 6);
 
     require APP . 'routes/admin' . EXT;
-    require APP . 'routes/categories' . EXT;
-    require APP . 'routes/comments' . EXT;
-    require APP . 'routes/fields' . EXT;
-    require APP . 'routes/menu' . EXT;
-    require APP . 'routes/metadata' . EXT;
-    require APP . 'routes/pages' . EXT;
     require APP . 'routes/panel' . EXT;
-    require APP . 'routes/plugins' . EXT;
-    require APP . 'routes/posts' . EXT;
     require APP . 'routes/users' . EXT;
-    require APP . 'routes/variables' . EXT;
-    require APP . 'routes/pagetypes' . EXT;
     require APP . 'routes/roledata' . EXT;
     require APP . 'routes/goddessdata' . EXT;
     require APP . 'routes/imagedata' . EXT;
@@ -82,6 +72,9 @@ if (is_admin()) {
     require APP . 'routes/revenge' . EXT;
     require APP . 'routes/roleitem' . EXT;
     require APP . 'routes/roleitemmallmoney' . EXT;
+    require APP . 'routes/maillog' . EXT;
+    require APP . 'routes/sendmail' . EXT;
+            
 } else {
     require APP . 'routes/site' . EXT;
 }
