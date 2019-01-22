@@ -11,8 +11,8 @@ mysqli_select_db($con, $db_name);
  mysqli_query($con, "set character set 'utf8mb4'");
  
     $query = $query == '' 
-            ? "SELECT * FROM $db_name.rs_roledata WHERE `CreateTime` BETWEEN '$starttime' and '$endtime'" 
-            : "SELECT * FROM $db_name.rs_roledata WHERE roleDBID = '$query' and `CreateTime` BETWEEN '$starttime' and '$endtime'";
+            ? "SELECT * FROM rs_roledata, rs_roledataex WHERE rs_roledata.roleDBID = rs_roledataex.roleDBID and `CreateTime` BETWEEN '$starttime' and '$endtime'" 
+            : "SELECT * FROM rs_roledata, rs_roledataex WHERE rs_roledata.roleDBID = '$query' and rs_roledataex.roleDBID = '$query' and `CreateTime` BETWEEN '$starttime' and '$endtime'";
         
     $result = mysqli_query($con, $query)
         or die ('Error in query');
@@ -23,7 +23,14 @@ mysqli_select_db($con, $db_name);
                         . '<th>ItemMallPoingPSum</th><th>ItemMallPointG</th><th>ItemMallPointGSum</th><th>Gold</th><th>GameLv</th><th>GameExp</th><th>GoddessDBID</th><th>Ep</th>'
                         . '<th>GuardGoddessDBID_1</th><th>GuardGoddessDBID_2</th><th>GuardGoddessDBID_3</th><th>ImagePublicID_1</th><th>ImagePublicID_2</th>'
                         . '<th>ImagePublicID_3</th><th>ImagePublicID_4</th><th>ImagePublicID_5</th>'
-                        . '<th>LanguageType</th><th>Platform</th><th>UserGuideFlag1</th><th>UserGuideFlag2</th></tr>';
+                        . '<th>LanguageType</th><th>Platform</th><th>UserGuideFlag1</th><th>UserGuideFlag2</th>'
+                        // rs_roledataex
+                        . '<th>RoleDBID</th><th>FcmToken_Android</th><th>FcmToken_iOS</th><th>SpaceAdd_GoddessColl</th><th>LoginBonusProgress</th>'
+                        . '<th>IdentityImagePID_1</th><th>IdentityImagePID_2</th><th>IdentityImagePID_3</th>'
+                        . '<th>PhoneNumber</th><th>RealName</th><th>RealIDNumber</th><th>BankCode</th><th>BankACNumber</th>'
+                        . '<th>CombatThemeLastDBID</th><th>CombatThemePlayableCount</th><th>CombatThemeTicketType</th><th>CombatTopPlayableCount</th>'
+                        . '<th>PromoteNewGoddessDBID</th><th>PromotePotentialGoddessDBID</th><th>PromoteHighEndGoddessDBID</th>'
+                        . '<th>FcmToken</th></tr>';
 		while($row2 = mysqli_fetch_row($result)) {
 			echo '<tr>';
 			foreach($row2 as $key=>$value) {

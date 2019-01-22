@@ -55,6 +55,10 @@
                       {
                           $menu = ['Revenge', 'RoleItem', 'RoleItemMallMoney', 'Users'];
                       }
+                       else if($db == 'accountdb')
+                      {
+                          $menu = ['PlayerInfo'];
+                      }
                   }                  
                   
                   ?>

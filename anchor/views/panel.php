@@ -8,7 +8,7 @@
     <p><?php echo __('若要查詢所有資料，在條件位留空。', 'message'); ?></p>
     <br/>
     
-    <p><?php echo __('選擇操作項目: ', 'function'); ?></p>
+    <p><?php echo __('1. 選擇操作項目: ', 'function'); ?></p>
     <form action="<?php echo Uri::to('admin/panel_update'); ?>" method="POST">
     <select name="function" id="baseFunctionForm" style="margin-top: 10px">
         <option value="query">資料庫查詢功能</option>
@@ -20,18 +20,19 @@
      
     <script lang="JavaScript">functionForm();</script>
      
-    <p><?php echo __('選擇欲查詢之資料庫: ', 'db'); ?></p>
+    <p><?php echo __('2. 選擇欲查詢之資料庫: ', 'db'); ?></p>
     <form action="<?php echo Uri::to('admin/panel_update'); ?>" id="dbForm" method="POST">
             <select name="db" style="margin-top: 10px">
             <option value="gamedb">GameDB</option>
             <option value="logdb">LogDB</option>
+            <option value='accountdb'>AccountDB</option>
             </select>
             <input type="submit" name="submit" style="margin-top: 10px; margin-left: 20px;"/>    
     </form>
     </br>
     
     <!-- GM測試   對外版只有正式服-->
-    <p><?php echo __('選擇欲查詢之伺服器: ','server'); ?></p>
+    <p><?php echo __('3. 選擇欲查詢之伺服器: ','server'); ?></p>
     <form action="<?php echo Uri::to('admin/panel_update'); ?>" method="POST">
     <select name="server" style="margin-top: 10px" onchange="">
         <option value="develop">開發機(僅限區網)</option>

@@ -14,13 +14,14 @@
 <script lang="JavaScript">
 function addPersonal(){
    delLast();
+   var date = new Date().toISOString().slice(0, 11).padEnd(19, "00:00:00");
    var str="<form action=\"<?php echo Uri::to('admin/sendmail/actionpersonal'); ?>\" method=\"POST\" align=\"start\" style=\"margin-top:20px\">"
           +"<div id='inputfield'>"
           +"★ 標題最多一百字，內文與備註最多五百字。</br></br>"
           +"<span style=\"font-weight:bold;\">"  //粗體
           +"角色編號<input type=\"text\" name=\"RoleDBID\" placeholder=\"收件者RoleDBID，多組請以空格分開\" style=\" margin-left:50px; width:842px\"></br>"
-          +"有效開始日期<input type=\"datetime-local\" name=\"SendTime\" value=\"2099-12-31T23:59\" style=\"margin-top:5px; margin-left:20px; margin-right:20px; width: 355px\">"
-          +"有效結束日期<input type=\"datetime-local\" name=\"ValidTime\" value=\"2099-12-31T23:59\" style=\"margin-top:5px; margin-left:20px; width:355px\"></br>"
+          +"有效開始日期<input type=\"datetime-local\" name=\"SendTime\" value=\"" + date + "\" min=\"2018-01-01T00:00\" max=\"2099-12-31T23:59\" style=\"margin-top:5px; margin-left:20px; margin-right:20px; width: 355px\" required>"
+          +"有效結束日期<input type=\"datetime-local\" name=\"ValidTime\" min=\"2018-01-01T00:00\" max=\"2099-12-31T23:59\" style=\"margin-top:5px; margin-left:20px; width:355px\" required></br>"
           +"信件類型<input type=\"text\" name=\"MailType\" placeholder=\"0=公告, 10=一般補償, 11=IAP補償, 20=一般獎勵\" style=\"margin-top:5px; margin-left:50px; margin-right:20px; width:355px\">"
           +"禮包編號<input type=\"text\" name=\"GiftBoxID\" placeholder=\"禮包編號 (無請留空)\" style=\"margin-left:52px; margin-top:5px; width:355px;\">"
           // 中文
@@ -42,6 +43,7 @@ function addPersonal(){
 //(WorldID,CreateRoleTime_Begin,CreateRoleTime_End,MailDBID,MailType,SendTime,ValidTime,Title_CH,Title_EN,Content_CH,Content_EN,GiftBoxID) 
 function addGlobal(){
    delLast();
+   var date = new Date().toISOString().slice(0, 11).padEnd(19, "00:00:00");
    var str="<form action=\"<?php echo Uri::to('admin/sendmail/actionglobal'); ?>\" method=\"POST\" align=\"start\" style=\"margin-top:20px\">"
           +"<div id='inputfield'>"
           +"★ 標題最多一百字，內文與備註最多五百字。</br></br>"
@@ -49,8 +51,8 @@ function addGlobal(){
           +"信件編號<input type=\"text\" name=\"MailDBID\" placeholder=\"0~639，不可留空或跳號\" style=\" margin-left:50px; width:842px\"></br>"
           +"創角起始日期<input type=\"datetime-local\" name=\"CreateRoleTime_Begin\" value=\"2000-01-01T00:00\" style=\"margin-top:5px; margin-left:20px; margin-right:20px; width: 355px\">"
           +"創角結束日期<input type=\"datetime-local\" name=\"CreateRoleTime_End\" value=\"2099-12-31T23:59\" style=\"margin-top:5px; margin-left:20px; width:355px\"></br>"
-          +"有效開始日期<input type=\"datetime-local\" name=\"SendTime\" value=\"2099-12-31T23:59\" style=\"margin-top:5px; margin-left:20px; margin-right:20px; width: 355px\">"
-          +"有效結束日期<input type=\"datetime-local\" name=\"ValidTime\" value=\"2099-12-31T23:59\" style=\"margin-top:5px; margin-left:20px; width:355px\"></br>"
+          +"有效開始日期<input type=\"datetime-local\" name=\"SendTime\" value=\"" + date + "\" min=\"2018-01-01T00:00\" max=\"2099-12-31T23:59\" style=\"margin-top:5px; margin-left:20px; margin-right:20px; width: 355px\" required>"
+          +"有效結束日期<input type=\"datetime-local\" name=\"ValidTime\" min=\"2018-01-01T00:00\" max=\"2099-12-31T23:59\" style=\"margin-top:5px; margin-left:20px; width:355px\" required></br>"
           +"信件類型<input type=\"text\" name=\"MailType\" placeholder=\"0=公告, 10=一般補償, 11=IAP補償, 20=一般獎勵\" style=\"margin-top:5px; margin-left:50px; margin-right:20px; width:355px\">"
           +"禮包編號<input type=\"text\" name=\"GiftBoxID\" placeholder=\"禮包編號 (無請留空)\" style=\"margin-left:52px; margin-top:5px; width:355px;\">"
           // 中文

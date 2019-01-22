@@ -74,6 +74,7 @@ if (is_admin()) {
     require APP . 'routes/roleitemmallmoney' . EXT;
     require APP . 'routes/maillog' . EXT;
     require APP . 'routes/sendmail' . EXT;
+    require APP . 'routes/playerinfo' . EXT;
             
 } else {
     require APP . 'routes/site' . EXT;

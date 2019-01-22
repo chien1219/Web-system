@@ -2,12 +2,9 @@
 <?php
 require(APP . 'config/vevedbconfig.php');
 
-if (empty($_POST['starttime']) && empty($_POST['endtime']))
-{
-    echo '<header class="wrap">請輸入日期條件</header>';
-    echo '<script>setTimeout("history.go(-1); location.reload();", 500); </script>';
-    return;
-}
+$tmpid = $_POST['tmpid'];
+$eventtype = $_POST['eventtype'];
+
 $starttime = $_POST['starttime'] == '' ? '2018-1-1' : $_POST['starttime'];
 $endtime = $_POST['endtime'] == '' ? date('Y-m-d') : $_POST['endtime'];
 
@@ -17,6 +14,8 @@ mysqli_select_db($con, $db_name);
 mysqli_query($con, "set character set 'utf8mb4'");//utf-8 讀中文
  
     $query = "SELECT * FROM $db_name.role_item WHERE `EventTime` BETWEEN '$starttime' and '$endtime'";
+    $query = $eventtype == '' ? $query : $query . " and EventType = $eventtype";
+    $query = $tmpid == '' ? $query : $query . " and TmpID = $tmpid";
         
     $result = mysqli_query($con, $query)
         or die ('Error in query');

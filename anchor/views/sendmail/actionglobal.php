@@ -1,11 +1,11 @@
-<?php echo $header; ?>
+﻿<?php echo $header; ?>
 <?php
 require(APP . 'config/vevedbconfig.php');
-$createroletimebegin = $_POST['CreateRoleTime_Begin'] == '' ? '2000-01-01 00:00:00' : $_POST['CreateRoleTime_Begin'];
-$createroletimeend = $_POST['CreateRoleTime_End'] == '' ? '2099-12-31 23:59:59' : $_POST['CreateRoleTime_End'];
 $maildbid = $_POST['MailDBID'];
-$sendtime = $_POST['SendTime'] == '' ? '2099-12-31 23:59:59' : $_POST['SendTime'];
-$validtime = $_POST['ValidTime'] == '' ? '2099-12-31 23:59:59' : $_POST['ValidTime'];
+$createroletimebegin = $_POST['CreateRoleTime_Begin'];
+$createroletimeend = $_POST['CreateRoleTime_End'];
+$sendtime = $_POST['SendTime'];
+$validtime = $_POST['ValidTime'];
 $mailtype = $_POST['MailType'];
 $giftboxid = $_POST['GiftBoxID'] == '' ? '-1' : $_POST['GiftBoxID'];
 $titleCH = $_POST['Title_CH'];
@@ -14,6 +14,15 @@ $titleEN = $_POST['Title_EN'];
 $contentEN = $_POST['Content_EN'];
 $titleVI = $_POST['Title_VI'];
 $contentVI = $_POST['Content_VI'];
+
+$sendtime = new DateTime($sendtime);
+$sendtime = $sendtime->format('Y-m-d H:i:s');
+$validtime = new DateTime($validtime);
+$validtime = $validtime->format('Y-m-d H:i:s');
+$createroletimebegin = new DateTime($createroletimebegin);
+$createroletimebegin = $createroletimebegin->format('Y-m-d H:i:s');
+$createroletimeend = new DateTime($createroletimeend);
+$createroletimeend = $createroletimeend->format('Y-m-d H:i:s');
 
 $comment = $_POST['Comment'];
 date_default_timezone_set("Asia/Taipei");
@@ -37,7 +46,8 @@ $result = mysqli_query($con, $query)
     or die ('Error in log mail');
 
 
-echo "<script>alert('寄件成功!');</script>";
+Notify::success(__('寄件成功！'));
+//echo "<script>alert('寄件成功!');</script>";
 echo '<script>history.go(-1); location.reload()</script>';
 ?>
 <?php echo $footer; ?>

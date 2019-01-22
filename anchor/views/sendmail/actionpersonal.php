@@ -1,4 +1,4 @@
-<?php echo $header; ?>
+﻿<?php echo $header; ?>
 <?php
 require(APP . 'config/vevedbconfig.php');
 $roledbidpost = $_POST['RoleDBID'];
@@ -21,6 +21,7 @@ $sendtime = new DateTime($sendtime);
 $sendtime = $sendtime->format('Y-m-d H:i:s');
 $validtime = new DateTime($validtime);
 $validtime = $validtime->format('Y-m-d H:i:s');
+
 // Connect
 $con = mysqli_connect($db_host, $db_user, $db_pass);
 mysqli_select_db($con, $db_name);
@@ -49,7 +50,8 @@ foreach($roledbids as $roledbid)
         or die ('Error in log mail');
 }
 
-echo "<script>alert('寄件成功!');</script>";
+Notify::success(__('寄件成功！'));
+//echo "<script>alert('寄件成功!');</script>";
 echo '<script>history.go(-1); location.reload()</script>';
 ?>
 <?php echo $footer; ?>

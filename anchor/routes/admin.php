@@ -439,6 +439,20 @@ Route::get('admin/sendmail', [
     }
 ]);
 
+/*
+  playerinfo_new
+*/
+Route::get('admin/playerinfo', [
+    'before' => 'auth',
+    'main'   => function ($page = 1) {
+
+        $vars['token'] = Csrf::token();
+        return View::create('playerinfo/index', $vars)
+                   ->partial('header', 'partials/header')
+                   ->partial('footer', 'partials/footer');
+    }
+]);
+
 Route::post('admin/get_fields', [
     'before' => 'auth',
     'main'   => function () {
