@@ -57,7 +57,7 @@
                       }
                        else if($db == 'accountdb')
                       {
-                          $menu = ['PlayerInfo'];
+                          $menu = ['PlayerInfo', 'Users'];
                       }
                   }                  
                   

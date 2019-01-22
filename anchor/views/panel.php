@@ -18,8 +18,6 @@
     </form>
     <br/>    
      
-    <script lang="JavaScript">functionForm();</script>
-     
     <p><?php echo __('2. 選擇欲查詢之資料庫: ', 'db'); ?></p>
     <form action="<?php echo Uri::to('admin/panel_update'); ?>" id="dbForm" method="POST">
             <select name="db" style="margin-top: 10px">
@@ -45,32 +43,6 @@
   </header>
 
 <?php echo $footer; ?>
-
-<script lang="JavaScript">
-    
-    function functionForm(){
-        delLast();
-        var function = document.getElementById("baseFunctionForm").value;
-                
-        if (function === 'query')
-        {
-            var str="選擇欲查詢之資料庫:<br />""
-            +"<select name=\"db\" style=\"margin-top: 10px\">"
-            +"<option value=\"gamedb\">GameDB</option>"
-            +"<option value=\"logdb\">LogDB</option>"
-            +"</select>"
-            +"<input type=\"submit\" name=\"submit\" style=\"margin-top: 10px; margin-left: 20px;\"/>";    
-        
-            document.all["dbForm"].insertAdjacentHTML("BeforeEnd",str);
-        }
-    }
-    function delLast(){
-       if(document.all["dbForm"])
-       {
-           eval("document.all[\"dbForm\"]").outerHTML = "";
-       }
-   }
-</script>
  
   <!--
     <form action="<?php echo Uri::to('http://192.168.1.205/webmfp9/checkpurchase/checkpurchase_googleplayNew.php?accountId=donate1&roleDBID=26&tmpID=0&gameServerIP=192.168.1.151'); ?>" method="POST" align="start" style="margin-top:20px">
