@@ -1,4 +1,4 @@
-ï»¿<?php echo $header; ?>
+?<?php echo $header; ?>
 <?php
 require(APP . 'config/vevedbconfig.php');
 $roledbidpost = $_POST['RoleDBID'];
@@ -37,7 +37,7 @@ foreach($roledbids as $roledbid)
     $result = mysqli_query($con, $query)
         or die ('Error in send mail');
     
-    // ç´€éŒ„MailDBIDä¸¦å­˜å…¥logDBä»¥ç¶­æŒä¸€è‡´
+    // ¬ö¿ıMailDBID¨Ã¦s¤JlogDB¥Hºû«ù¤@­P
     $query = "SELECT MailDBID FROM _sys_sendmail_personal ORDER BY MailDBID DESC LIMIT 1";
     $result = mysqli_query($con, $query)
         or die ('Error in get MailDBID return');
@@ -50,8 +50,8 @@ foreach($roledbids as $roledbid)
         or die ('Error in log mail');
 }
 
-Notify::success(__('å¯„ä»¶æˆåŠŸï¼'));
-//echo "<script>alert('å¯„ä»¶æˆåŠŸ!');</script>";
+Notify::success(__('±H¥ó¦¨¥\¡I'));
+//echo "<script>alert('±H¥ó¦¨¥\!');</script>";
 echo '<script>history.go(-1); location.reload()</script>';
 ?>
 <?php echo $footer; ?>

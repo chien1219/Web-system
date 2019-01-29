@@ -40,6 +40,25 @@
         <input type="submit" name="submit" style="margin-top: 10px; margin-left: 20px;"/>
     </form>
      <br/>
+     
+     <br />
+    -------------------- 發Email測試 --------------------
+    <form action="<?php echo Uri::to('admin/panel_update'); ?>" method="POST" align="start" style="margin-top:20px">
+    寄件對象：<br />
+    <input type="text" name="to" style="margin-top:5px; margin-right: 20px">
+    <br />
+    標題：
+    <br />
+    <input type="text" name="subject"  style="margin-top:10px; margin-right: 20px">
+    </br>
+    內文：
+    </br>
+    <textarea name="content" placeholder="" maxlength="500" style="margin-top:5px; width:842px; height:150px"></textarea>
+    <br />
+    <input type="submit" name="submit" value="Send"  style="margin-top:10px">
+    <input type="reset" value="Reset" style="margin-left: 10px">
+    </form>
+     
   </header>
 
 <?php echo $footer; ?>
